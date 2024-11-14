@@ -3,7 +3,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.lang.classfile.attribute.SyntheticAttribute;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,6 +16,7 @@ public class Irctc {
         String url= "https://www.irctc.co.in/nget/train-search";
         driver.get(url); //hit the url
         ticket.login(driver);
+        ticket.sourceStation(driver);
 
 
         /*
@@ -56,39 +56,39 @@ public class Irctc {
         Scanner scn=new Scanner(System.in);
         //id
         System.out.print("Please enter your id:");
-        this.id=scn.next();
+        this.id="sumit223345";
 
         //password
         System.out.print("please enter your password:");
-        this.password=scn.next();
+        this.password="Sumit223345";
 
         //source Station
         System.out.print("Enter source Station Name:");
-        this.sourceStation=scn.next();
+        this.sourceStation="new delhi";
 
         //destination Station
         System.out.print("Enter destination Station Name:");
-        this.destinationStation=scn.next();
+        this.destinationStation="patna";
 
         //ticket Type
         System.out.print("Enter Ticket Type:");
-        this.ticketType=scn.next();
+        this.ticketType="general";
 
         //date
         System.out.print("Enter Traveling Date:");
-        this.date=scn.next();
+        this.date="15/11/2024";
 
         //class Type
         System.out.print("Enter Class Type:");
-        this.classType=scn.next();
+        this.classType="3A";
 
         //passanger Name
         System.out.print("Enter Passanger Name:");
-        this.passangerName=scn.next();
+        this.passangerName="Sumit";
 
         //passanger Age
         System.out.print("Enter Passanger Age:");
-        this.passangerAge=scn.next();
+        this.passangerAge="24";
 
         System.out.print("\uD83D\uDE4F\uD83C\uDFFB Thanks for giving Your Id and Password, please wait!⏳");
     }
@@ -101,9 +101,23 @@ public class Irctc {
         Thread.sleep(30000); //30sec pause to inter captcha
         driver.findElement(By.xpath("//button[normalize-space()='SIGN IN']")).click();
     }
+    //sourceStation filling @@@@@@working on it
+    public WebElement sourceStation(WebDriver driver){
+        WebElement element=null;
+        List<WebElement> options=driver.findElements(By.xpath("//input[@class='ng-tns-c57-8 ui-inputtext ui-widget ui-state-default ui-corner-all ui-autocomplete-input ng-star-inserted']"));
 
+        for(WebElement option:options){
+            if(option.getText().equalsIgnoreCase(this.sourceStation)){
+                element=option;
+                break;
+            }
+        }
+        return element;
+    }
+
+    //filling Booking Details
     public void trainSearch(WebDriver driver){
-        List<WebElement> options=driver.findElements(By.xpath("//input[@class='ng-tns-c57-8 ui-inputtext ui-widget ui-state-default ui-corner-all ui-autocomplete-input ng-star-inserted']"))
+
     }
 
 
