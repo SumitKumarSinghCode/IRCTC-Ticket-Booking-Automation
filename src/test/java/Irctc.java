@@ -118,6 +118,21 @@ public class Irctc {
         return element;
     }
 
+    //classType
+    public WebElement classType(WebDriver driver) throws InterruptedException {
+        WebElement element=null;
+        driver.findElement(By.cssSelector("div[class='ng-tns-c65-11 ui-dropdown ui-widget ui-state-default ui-corner-all']")).click();
+        Thread.sleep(5000);
+        List<WebElement> options=driver.findElements(By.cssSelector("li[role='option']"));
+        for(WebElement option:options){
+            if((option.getText()).toUpperCase().contains((this.classType).toUpperCase())){
+                element=option;
+                break;
+            }
+        }
+        return element;
+    }
+
     //filling Booking Details
     public void trainSearch(WebDriver driver){
 

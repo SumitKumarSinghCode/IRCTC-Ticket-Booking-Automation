@@ -13,6 +13,7 @@ public class TicketBooking {
         ticket.sourceStation(driver).click();
         ticket.destinationStation(driver).click();
         ticket.ticketType(driver).click();
+        ticket.classType(driver).click();
 
         System.out.println("All test case passed");
     }
